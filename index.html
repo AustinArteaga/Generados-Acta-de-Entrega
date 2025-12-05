@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Actas de Entrega - Marriott S.A.</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📋 Generador de Actas de Entrega</h1>
+            <p>Marriott S.A. - Sistema Automatizado</p>
+        </div>
+
+        <div class="form-container">
+            <div class="success-message" id="successMessage">
+                ✓ PDF generado exitosamente
+            </div>
+
+            <form id="actaForm">
+                <div class="form-group">
+                    <label for="area">Centro de Costos / Área:</label>
+                    <input type="text" id="area" name="area" required placeholder="Ej: Sistemas, Ventas, Administración">
+                </div>
+
+                <div class="grid-2">
+                    <div class="form-group">
+                        <label for="equipo">Tipo de Equipo:</label>
+                        <input type="text" id="equipo" name="equipo" required placeholder="Ej: Laptop, Desktop, Teléfono">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="serie">Número de Serie:</label>
+                        <input type="text" id="serie" name="serie" required placeholder="Ej: SN123456789">
+                    </div>
+                </div>
+
+                <div class="grid-2">
+                    <div class="form-group">
+                        <label for="precio">Valor del Equipo (sin signo $):</label>
+                        <input type="text" id="precio" name="precio" required placeholder="Ej: 1500.00 o 1,500.00">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="fecha">Fecha de Entrega:</label>
+                        <input type="date" id="fecha" name="fecha" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="usuario">Nombre del Usuario Responsable:</label>
+                    <input type="text" id="usuario" name="usuario" required placeholder="Nombre completo del empleado">
+                </div>
+
+                <div class="btn-container">
+                    <button type="button" class="btn-secondary" onclick="limpiarFormulario()">Limpiar</button>
+                    <button type="submit" class="btn-primary">Generar PDF</button>
+                </div>
+            </form>
+
+            <div class="preview-container" id="previewContainer">
+                <div class="preview-title">Vista Previa del Documento:</div>
+                <div class="preview-content" id="previewContent"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
